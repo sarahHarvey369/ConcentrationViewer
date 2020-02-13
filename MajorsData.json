@@ -1,0 +1,277 @@
+{
+  "majors":[
+
+
+
+    {
+      "name": "Cybyersecurity",
+      "descriptions": "Radford University recently launched a degree program in Cybersecurity, designed to prepare students to meet the anticipated demand for 3.5 million cybersecurity professionals by 2023. The bachelor of science in Cybersecurity is the first at a four year public institution in the Commonwealth of Virginia.",
+      "concentrations":[
+        {
+          "name": "Cybersecurity",
+          "description": "Radford’s curriculum develops the depth and breadth necessary for security professionals to design and develop comprehensive security solutions.",
+          "courses": [
+            {
+              "id": "345",
+              "name": "Introduction to Information Security",
+              "description": "Covers the fundamentals of information security. Lectures focus on providing a broad overview of principles, policies and procedures in security. ITEC 345 cannot be counted toward technical electives or BS requirements in any concentration. Students cannot earn credit for both ITEC 245 and ITEC 345."
+            },
+
+            {
+              "id": "445",
+              "name": "Computer System and Database Security",
+              "description": "Threats and vulnerabilities in software systems, principles to design and implementsecure software systems, database and information security."
+            },
+
+            {
+              "id": "455",
+              "name": "Applied Cryptography and Network Security",
+              "description": "Threats and vulnerabilities in computer networks, cryptography and its application to network security mechanisms, secure network protocols and network intrusion detection systems."
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    {
+      "name": "Computer Science",
+      "description": "Prepares students for a variety of careers in industry and government and for graduate study. Within the Computer Science and Technology degree program students can choose among four Concentrations: Computer Science, Database, Networks, and Software Engineering.",
+      "concentrations":[
+        {
+          "name": "Computer Science",
+          "description": "The ABET accredited Computer Science concentration includes a broad foundation in the core areas of computer science, including operating systems, computer organization, programming language design, and advanced study of algorithms and theoretical computer science. Technical elective courses provide specialization in two areas chosen by the student.",
+          "courses": [
+            {
+              "id": "360",
+              "name": "Data Structures and Analysis of Algorithms",
+              "description": "Includes data structures, concepts and algorithms used in the solution of nonnumeric problems; applications to data management systems, file organization, information retrieval, list processing and programming languages. Students who have received credit for CPSC 360 may not receive credit for ITEC 360."
+            },
+
+            {
+              "id": "371",
+              "name": "Operating Systems",
+              "description": "Principles of operating systems including interaction between operating systems and architecture of computer systems with emphasis on resource management. Students who have received credit for CPSC 371 may not receive credit for ITEC 371."
+            },
+
+            {
+              "id": "420",
+              "name": "Computability Theory and Formal Languages",
+              "description": "A survey of attempts to model computation and formal language concepts. Students who have received credit for CPSC 420 may not receive credit for ITEC 420."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Software Engineering",
+          "description": "The Software Engineering concentration is designed to produce designers for large, complex software systems. Current best practices and process models of the software development life cycle are covered with detailed study of all process phases from requirements elicitation through operations and maintenance. Emphasis is on design attributes that make it possible to efficiently implement, extend, and maintain large systems.",
+          "courses": [
+            {
+              "id": "370",
+              "name": "Software Engineering I",
+              "description": "An introduction to requirements analysis, specification, and design strategies for both procedural and object oriented approaches to development. Students who have received credit for CPSC 271 or INSY 481 may not receive credit for ITEC 370."
+            },
+
+            {
+              "id": "471",
+              "name": "Software Engineering II",
+              "description": "A continuation of principles of software engineering and the design and implementation strategies appropriate for large software projects. Includes the use of CASE tools, extreme programming methods, software metrics, verification, validation, quality assurance, and a further exploration of the principles of human-computer interaction."
+            },
+
+            {
+              "id": "472",
+              "name": "Software Engineering III",
+              "description": "Acontinuation of principles of software engineering and the design and implementation strategies appropriate for large software projects. This course is intended to provide a large-system capstone experience."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Database",
+          "description": "Information is power. As a result, ensuring the integrity, security, and availability of data is a critical task within organizations. The Database concentration educates students in all aspects of data management from database design to database administration to data warehousing and analysis. The concentration also provides an excellent foundation from which to pursue a career in the design and implementation of database management system (DMBS) software.",
+          "courses": [
+            {
+              "id": "340",
+              "name": "Database I",
+              "description": "A first introduction to database systems including the relational model, SQL, security, database design, and stored procedures. Students may not receive credit if they have previously taken INSY 383, 483 or CPSC 440."
+            },
+
+            {
+              "id": "441",
+              "name": "Database II",
+              "description": "A continuation of the introduction to the techniques used in the modeling and manipulation of large sets of data. An in-depth coverage of triggers, assertions, PS/SQL, advanced modeling concepts, normalization, etc."
+            },
+
+            {
+              "id": "442",
+              "name": "Database III",
+              "description": "A continuation of principles of database systems and the introduction to techniques for the modeling and manipulation of large data sets. This course is intended to provide a large-system capstone experience."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Networks",
+          "description": "Computer and communications networks are now a part of our everyday lives. The networks Concentration prepares students for careers in network design and network administration. Courses expose students to a broad spectrum of networking concepts and technologies in both a theoretical classroom setting and an advanced networks lab.",
+          "courses": [
+            {
+              "id": "350",
+              "name": "Networks I",
+              "description": "Introduction to physical and logical networking concepts including the ISO reference model, topologies, protocols, local and long-haul networks. Students who have received credit for CPSC 450 or INSY371 may not receive credit for ITEC 350."
+            },
+
+            {
+              "id": "451",
+              "name": "Networks II",
+              "description": "Advanced concepts in networking including network performance, design, administration, security, and tuning. Students who have received credit for CPSC 450 may not receive credit for ITEC 451."
+            },
+
+            {
+              "id": "455",
+              "name": "Applied Cryptography and Network Security",
+              "description": "Threats and vulnerabilities in computer networks, cryptography and its application to network security mechanisms, secure network protocols, and network intrusion detection systems."
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    {"name": "Information Science",
+      "description": "Prepares students for a variety of careers in industry and government and for graduate study. In the Information Science and Systems program two Concentrations are available: Information Systems and Web Development.",
+      "concentrations": [
+        {
+          "name": "Decision Science",
+          "description": "Students study the use of technology in decision making. Topics include decision analysis, risk analysis, decision support systems, information assurance management and computer science. ",
+          "courses": [
+            {
+              "id": "375",
+              "name": "Data Science",
+              "description": "ITEC 375 will serve as an introduction to the scientific processes of transforming data sets into actionable insight."
+            },
+
+            {
+              "id": "466",
+              "name": "Information Assurance Management",
+              "description": "ITEC 466 covers principles, policies, procedures and management in security. It includes information assurance governance, risk, compliance, planning and procedures."
+            },
+
+            {
+              "id": "485",
+              "name": "Decision Support Systems",
+              "description": "ITEC 485 will cover data and modeling solutions to semi-structured business problems including expert systems, executive information systems, on-line analytical processing, natural language interfaces, and ad-hoc query and reporting tools."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Healthcare Information Systems",
+          "description": "Students study the role of information systems in management and administration in the healthcare industry. Topics include the role of technology, data communications, medical information storage and legal issues faced by healthcare workers using information systems.",
+          "courses": [
+            {
+              "id": "200",
+              "name": "Healthcare Information Systems",
+              "description": "ITEC 200 will cover the role of information systems in management and administration in the healthcare industry."
+            },
+            {
+              "id": "369",
+              "name": "Systems Analysis and Design",
+              "description": "ITEC 369 will cover the analysis, design, development and deployment of information systems."
+            },
+            {
+              "id": "395",
+              "name": "Information Technology Project Management",
+              "description": "ITEC 395 equips students with the necessary skill set to complete the project management process from conception to closing."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Information Systems Security",
+          "description": "Students study information system security. Topics include computer systems and database security, applied cryptography, network security, decision support systems, and I.T. project management.",
+          "courses": [
+            {
+              "id": "445",
+              "name": "Computer System and Database Security",
+              "description": "ITEC 445 will cover threats and vulnerabilities in software systems, principles to design and implement secure software systems, database and information security."
+            },
+
+            {
+              "id": "455",
+              "name": "Applied Cryptography and Network Security",
+              "description": "ITEC 455 will cover threats and vulnerabilities in computer networks, cryptography and its application to network security mechanisms, secure network protocols and network intrusion detection systems."
+            },
+
+            {
+              "id": "485",
+              "name": "Decision Support Systems",
+              "description": "ITEC 485 will cover data and modeling solutions to semi-structured business problems including expert systems, executive information systems, on-line analytical processing, natural language interfaces, and ad-hoc query and reporting tools."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Information Systems",
+          "description": "The program has two primary objectives-- the application of technology to solve business problems and the successful management of information technology within a business organization. To that end, the requirements of the concentration include a mix of courses in both business and information technology taught in both colleges.",
+          "courses": [
+            {
+              "id": "281",
+              "name": "Data Managment and Analysis with Spreadsheets",
+              "description": "A study of basic and advanced techniques for data analysis and management using electronic spreadsheets. Coverage includes the study of features for gathering, managing, manipulating, and filtering data sets including multidimensional data. Techniques for collaborative use of a spreadsheet are covered including multi-user access, formula protection, and security. Advanced analysis coverage includes built-in and user defined functions, goal seeking, sensitivity analysis, scenario management, and data visualization."
+            },
+
+            {
+              "id": "345",
+              "name": "Introduction to Information Security",
+              "description": "Covers the fundamentals of information security. Lectures focus on providing a broad overview of principles, policies, and procedures in security. ITEC 345 cannot be counted toward technical electives or B.S. requirements in any concentration."
+            },
+
+            {
+              "id": "485",
+              "name": "Decision Support Systems",
+              "description": "ITEC 485 will cover data and modeling solutions to semi-structured business problems including expert systems, executive information systems, on-line analytical processing, natural language interfaces, and ad-hoc query and reporting tools."
+            }
+          ]
+        },
+
+
+        {
+          "name": "Web Development",
+          "description": "The Web Development concentration is designed to produce professionals with expertise in all aspects of web site development and operation from site aesthetics to systems programming to ecommerce transaction processing. This is a heavily cross-disciplinary concentration with required courses in business, art, media studies, communications, as well as information technology.",
+          "courses": [
+            {
+              "id": "225",
+              "name": "Web Development I",
+              "description": "An introduction to web programming for those students that already understand programming fundamentals Includes an introduction to a variety of web based programming languages as well as an introduction to operating system environments that support web applications. Students who have received credit for CPSC 103 or CPSC 107 cannot receive credit for ITEC 225."
+            },
+
+            {
+              "id": "325",
+              "name": "Web Development II",
+              "description": "The continuation of Web Programming I for tools, methods, and technologies for designing and producing multimedia pieces. More basic technologies and tools and methods for designing and managing world wide web programming and development are discussed. Emphasis is on the role of today's e-business and world wide web in collaborative work. Practical experience in designing, implementing and maintaining hypermedia world wide web systems."
+            },
+
+            {
+              "id": "425",
+              "name": "Advanced Web Development",
+              "description": "An advanced development class in Web programming for those students that have completed the Web Programming I and II sequence. Includes the applied study of Web services, Web security, and other current topics in Web development."
+            }
+          ]
+        }
+
+
+      ]
+    }
+
+
+
+  ]
+}

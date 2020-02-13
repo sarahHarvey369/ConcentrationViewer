@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <title>Concentration Veiwer</title>
+    <script type=text/javascript src="jquery-3.4.1.min.js"></script>
+    <script>
+      function majorsJSON() {
+        fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
+        .then( response => {return response.json();})
+        .then( data=>
+        {
+          for (i=0; i < data.majors.length; i++) {
+            let option =document.createElement("option");
+            option.innerHTML=data.majors[i].name;
+            $("#major").append(option, {text: data.majors[i].name});
+          }
+        });
+      }
+      function concentrationsJSON(major) {
+        fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
+        .then( response => {return response.json();})
+        .then( data=>
+        {
+
+          let count = 0;
+          while (count < data.majors.length) {
+            if (data.majors[count].name===major) {
+              for (i=0; i < data.majors[count].concentrations.length; i++) {
+                $("#"+[i]+".concentration").text(data.majors[count].concentrations[i].name);
+              }
+            }
+            count++;
+          }
+        });
+      }
+      function courseJSON(major, buttonClicked) {
+        fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
+        .then( response => {return response.json();})
+        .then( data=>
+        {
+          let count = 0;
+          while (count < data.majors.length) {
+            if(data.majors[count].name===major) {
+              for (i=0; i < data.majors[count].concentrations[buttonClicked].courses.length; i++) {
+                $("#"+[i]+".course").text(data.majors[count].concentrations[buttonClicked].courses[i].id);
+              }
+            }
+            count++;
+          }
+        });
+      }
+      function courseDescription(major, buttonClicked, courseClicked) {
+
+      }
+      function clearText(max, classname) {
+        for (c=0; c < max; c++) {
+          $("#"+[c]+"."+classname).text('');
+        }
+      }
+      $(document).ready(function(){
+        majorsJSON();
+        $("#major").change(function(){
+          major = $(this).val();
+          clearText(5, "concentration");
+          clearText(3, "course");
+          concentrationsJSON(major);
+          $("button.concentration").click(function(){
+            let buttonClicked = this.id;
+            courseJSON(major, buttonClicked);
+            $("button.course").click(function(){
+              let courseClicked = this.id;
+              courseDescription(major, buttonClicked, courseClicked);
+            })
+          });
+        });
+      });
+    </script>
+    <style>
+    body {
+      background-color: rgb(148, 13, 13);
+    }
+    h1 {
+      background-color: rgb(19,31,84);
+      color: white;
+      text-shadow: -1px 0 black, 1px 0 black, 0 1px black, 0 -1px black;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 36px;
+    }
+    button {
+      color: white;
+      background-color: rgb(19, 31, 84);
+      border-radius: 12px;
+      border-color: grey;
+      outline: none;
+      font-size: 12px;
+      width: 120px;
+      height: 60px;
+    }
+    option {
+      color: black;
+      text-align: center;
+      font-size: 14px;
+    }
+     table, th, td {
+      color: white;
+      font-size: 14px;
+      border: 1px solid white;
+      vertical-align: top;
+    }
+    th {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    td {
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+      <h1>Welcome To The Concentration Viewer</h1>
+      <select id="major">
+        <option value="0">Select Major</option>
+
+      </select>
+      <table id="concentrations-courses">
+        <tr id="concentrations">
+          <th>Courses</th>
+          <th>
+            <button id="0" class="concentration"> </button>
+          </th>
+          <th>
+            <button id="1" class="concentration"> </button>
+          </th>
+          <th>
+            <button id="2" class="concentration"> </button>
+          </th>
+          <th>
+            <button id="3" class="concentration"> </button>
+          </th>
+          <th>
+            <button id="4" class="concentration"> </button>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <button id="0" class="course"> </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="1" class="course"> </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="2" class="course"> </button>
+          </td>
+        </tr>
+      </table>
+  </body>
+</html>
