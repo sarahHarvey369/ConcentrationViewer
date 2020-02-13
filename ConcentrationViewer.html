@@ -41,7 +41,9 @@
           while (count < data.majors.length) {
             if(data.majors[count].name===major) {
               for (i=0; i < data.majors[count].concentrations[buttonClicked].courses.length; i++) {
-                $("#"+[i]+".course").text(data.majors[count].concentrations[buttonClicked].courses[i].id);
+                let courseId = data.majors[count].concentrations[buttonClicked].courses[i].id;
+                let courseName = data.majors[count].concentrations[buttonClicked].courses[i].name;
+                $("#"+[i]+".course").text(courseId + ' ' + courseName);
               }
             }
             count++;
@@ -49,7 +51,28 @@
         });
       }
       function courseDescription(major, buttonClicked, courseClicked) {
-
+        dataLength = "data.majors[count].concentrations[buttonClicked].courses";
+        jsonData = '[courseClicked].description[i]';
+        selector = ".course-description";
+        jsonHelper(dataLength, jsonData, selector, major, buttonClicked, courseClicked);
+      }
+      function jsonHelper(dataLength, jsonData, selector, major, buttonClicked, courseClicked){
+        fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
+        .then( response => {return response.json();})
+        .then( data=>
+        {
+          let count = 0;
+          while (count < data.majors.length) {
+            if (data.majors[count].name===major) {
+              for (i = 0; i < [dataLength].length; i++) {
+                json = $([dataLength+jsonData])
+                console.log(json);
+                $("#"+[i]+selector).text(json);
+              }
+            }
+            count++;
+          }
+        });
       }
       function clearText(max, classname) {
         for (c=0; c < max; c++) {
@@ -63,13 +86,13 @@
           clearText(5, "concentration");
           clearText(3, "course");
           concentrationsJSON(major);
-          $("button.concentration").click(function(){
-            let buttonClicked = this.id;
+          $("button.concentration").click(function(e){
+            buttonClicked = e.target.id;
             courseJSON(major, buttonClicked);
-            $("button.course").click(function(){
-              let courseClicked = this.id;
+            $("button.course").click(function() {
+              courseClicked = this.id;
               courseDescription(major, buttonClicked, courseClicked);
-            })
+            });
           });
         });
       });
@@ -95,6 +118,10 @@
       font-size: 12px;
       width: 120px;
       height: 60px;
+    }
+    p {
+      color: white;
+      font-size: 12px;
     }
     option {
       color: black;
@@ -146,15 +173,24 @@
           <td>
             <button id="0" class="course"> </button>
           </td>
+          <td>
+            <p id="0" class="course-description"> </p>
+          </td>
         </tr>
         <tr>
           <td>
             <button id="1" class="course"> </button>
           </td>
+          <td>
+            <p id="1" class="course-description"> </p>
+          </td>
         </tr>
         <tr>
           <td>
             <button id="2" class="course"> </button>
+          </td>
+          <td>
+            <p id="2" class="course-description"> </p>
           </td>
         </tr>
       </table>
