@@ -24,6 +24,7 @@
           let count = 0;
           while (count < data.majors.length) {
             if (data.majors[count].name===major) {
+              $("#major-description").text("Major Description: " + data.majors[count].description);
               for (i=0; i < data.majors[count].concentrations.length; i++) {
                 $("#"+[i]+".concentration").text(data.majors[count].concentrations[i].name);
               }
@@ -45,18 +46,18 @@
                 let courseName = data.majors[count].concentrations[buttonClicked].courses[i].name;
                 $("#"+[i]+".course").text(courseId + ' ' + courseName);
               }
+              $("#concentration-text").text(data.majors[count].concentrations[buttonClicked].name);
+              $("#concentration-description").text("Concentration Description: " + data.majors[count].concentrations[buttonClicked].description);
             }
             count++;
           }
         });
       }
       function courseDescription(major, buttonClicked, courseClicked) {
-        dataLength = "data.majors[count].concentrations[buttonClicked].courses";
-        jsonData = '[courseClicked].description[i]';
         selector = ".course-description";
-        jsonHelper(dataLength, jsonData, selector, major, buttonClicked, courseClicked);
+        jsonHelper(selector, major, buttonClicked, courseClicked);
       }
-      function jsonHelper(dataLength, jsonData, selector, major, buttonClicked, courseClicked){
+      function jsonHelper(selector, major, buttonClicked, courseClicked){
         fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
         .then( response => {return response.json();})
         .then( data=>
@@ -64,10 +65,12 @@
           let count = 0;
           while (count < data.majors.length) {
             if (data.majors[count].name===major) {
-              for (i = 0; i < [dataLength].length; i++) {
-                json = $([dataLength+jsonData])
-                console.log(json);
-                $("#"+[i]+selector).text(json);
+              courseDescriptionDataLength= data.majors[count].concentrations[buttonClicked].courses[courseClicked];
+              courseDescriptionJsonData = courseDescriptionDataLength.description;
+              for (i = 0; i < [courseDescriptionDataLength].length; i++) {
+                console.log(courseDescriptionDataLength.length);
+                console.log(courseDescriptionJsonData[i]);
+                $("#"+[courseClicked]+selector).text(courseDescriptionJsonData);
               }
             }
             count++;
@@ -79,16 +82,29 @@
           $("#"+[c]+"."+classname).text('');
         }
       }
+      function clearMajorDescription() {
+        if (major==0) {
+          $("#major-description").text('');
+        }
+      }
       $(document).ready(function(){
         majorsJSON();
+
         $("#major").change(function(){
           major = $(this).val();
+          clearMajorDescription(major);
           clearText(5, "concentration");
           clearText(3, "course");
+          $("#concentration-description").text('');
+          $("#concentration-text").text('');
+          clearText(3, "course-description");
           concentrationsJSON(major);
+
           $("button.concentration").click(function(e){
             buttonClicked = e.target.id;
+            clearText(3, "course-description");
             courseJSON(major, buttonClicked);
+
             $("button.course").click(function() {
               courseClicked = this.id;
               courseDescription(major, buttonClicked, courseClicked);
@@ -117,7 +133,7 @@
       outline: none;
       font-size: 12px;
       width: 120px;
-      height: 60px;
+      height: 100px;
     }
     p {
       color: white;
@@ -133,6 +149,8 @@
       font-size: 14px;
       border: 1px solid white;
       vertical-align: top;
+      text-align: center;
+      max-width: 800px;
     }
     th {
       text-align: center;
@@ -150,9 +168,11 @@
         <option value="0">Select Major</option>
 
       </select>
+      <p id="major-description"> </p>
+      <p id="concentration-description"> </p>
       <table id="concentrations-courses">
         <tr id="concentrations">
-          <th>Courses</th>
+          <th id="concentration-text"> </th>
           <th>
             <button id="0" class="concentration"> </button>
           </th>
@@ -173,7 +193,7 @@
           <td>
             <button id="0" class="course"> </button>
           </td>
-          <td>
+          <td colspan="5">
             <p id="0" class="course-description"> </p>
           </td>
         </tr>
@@ -181,7 +201,7 @@
           <td>
             <button id="1" class="course"> </button>
           </td>
-          <td>
+          <td colspan="5">
             <p id="1" class="course-description"> </p>
           </td>
         </tr>
@@ -189,7 +209,7 @@
           <td>
             <button id="2" class="course"> </button>
           </td>
-          <td>
+          <td colspan="5">
             <p id="2" class="course-description"> </p>
           </td>
         </tr>

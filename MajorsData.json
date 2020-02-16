@@ -5,7 +5,7 @@
 
     {
       "name": "Cybyersecurity",
-      "descriptions": "Radford University recently launched a degree program in Cybersecurity, designed to prepare students to meet the anticipated demand for 3.5 million cybersecurity professionals by 2023. The bachelor of science in Cybersecurity is the first at a four year public institution in the Commonwealth of Virginia.",
+      "description": "Radford University recently launched a degree program in Cybersecurity, designed to prepare students to meet the anticipated demand for 3.5 million cybersecurity professionals by 2023. The bachelor of science in Cybersecurity is the first at a four year public institution in the Commonwealth of Virginia.",
       "concentrations":[
         {
           "name": "Cybersecurity",
