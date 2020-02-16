@@ -53,11 +53,7 @@
           }
         });
       }
-      function courseDescription(major, buttonClicked, courseClicked) {
-        selector = ".course-description";
-        jsonHelper(selector, major, buttonClicked, courseClicked);
-      }
-      function jsonHelper(selector, major, buttonClicked, courseClicked){
+      function courseDescription(major, buttonClicked, courseClicked){
         fetch("https://www.radford.edu/sharvey2/425/MajorsData.json", {mode: 'no-cors'})
         .then( response => {return response.json();})
         .then( data=>
@@ -68,9 +64,7 @@
               courseDescriptionDataLength= data.majors[count].concentrations[buttonClicked].courses[courseClicked];
               courseDescriptionJsonData = courseDescriptionDataLength.description;
               for (i = 0; i < [courseDescriptionDataLength].length; i++) {
-                console.log(courseDescriptionDataLength.length);
-                console.log(courseDescriptionJsonData[i]);
-                $("#"+[courseClicked]+selector).text(courseDescriptionJsonData);
+                $("#"+[courseClicked]+".course-description").text(courseDescriptionJsonData);
               }
             }
             count++;
