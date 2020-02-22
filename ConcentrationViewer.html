@@ -28,9 +28,11 @@
               for (i=0; i < data.majors[count].concentrations.length; i++) {
                 $("#"+[i]+".concentration").text(data.majors[count].concentrations[i].name);
               }
+              hideButtons(i);
             }
             count++;
           }
+
         });
       }
       function courseJSON(major, buttonClicked) {
@@ -44,6 +46,7 @@
               for (i=0; i < data.majors[count].concentrations[buttonClicked].courses.length; i++) {
                 let courseId = data.majors[count].concentrations[buttonClicked].courses[i].id;
                 let courseName = data.majors[count].concentrations[buttonClicked].courses[i].name;
+                $("#"+[i]+".course").show();
                 $("#"+[i]+".course").text(courseId + ' ' + courseName);
               }
               $("#concentration-text").text(data.majors[count].concentrations[buttonClicked].name);
@@ -79,12 +82,35 @@
       function clearMajorDescription() {
         if (major==0) {
           $("#major-description").text('');
+          $("#descriptions").hide();
+          $("#concentrations-courses").hide();
+          $("#label.major").hide();
+        }
+      }
+      function hideButtons(i) {
+        for (j=0; j < 5; j++) {
+          if (j>=i) {
+            $("#"+[j]+".concentration").hide();
+          }
+          else {
+            $("#"+[j]+".concentration").show();
+          }
+          if (j < 3) {
+            $("#"+[j]+".course").hide();
+          }
         }
       }
       $(document).ready(function(){
         majorsJSON();
-
+        $("#concentrations-courses").hide();
+        $("#label.major").hide();
+        $("#label.concen").hide();
+        $("#descriptions").hide();
         $("#major").change(function(){
+          $("#concentrations-courses").show();
+          $("#label.concen").hide();
+          $("#descriptions").show();
+          $("#label.major").show();
           major = $(this).val();
           clearMajorDescription(major);
           clearText(5, "concentration");
@@ -93,9 +119,11 @@
           $("#concentration-text").text('');
           clearText(3, "course-description");
           concentrationsJSON(major);
+          $("#concentration-text").text('Concentrations');
 
           $("button.concentration").click(function(e){
             buttonClicked = e.target.id;
+            $("#label.concen").show();
             clearText(3, "course-description");
             courseJSON(major, buttonClicked);
 
@@ -120,6 +148,7 @@
       font-size: 36px;
     }
     button {
+      margin-left: 35px;
       color: white;
       background-color: rgb(19, 31, 84);
       border-radius: 12px;
@@ -131,17 +160,39 @@
     }
     p {
       color: white;
-      font-size: 12px;
+      font-size: 14px;
     }
     option {
       color: black;
       text-align: center;
       font-size: 14px;
     }
+    #descriptions {
+      border: 5px solid rgb(19, 31, 84);
+      min-width: 900px;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      padding-right: 20px;
+    }
+    #label {
+      min-width: 250px;
+      min-height: 100px;
+      font-size: 18px;
+      font-weight: bolder;
+      font-style: italic;
+      color:rgb(19, 31, 84);
+    }
+    #concentration-text {
+      font-size: 18px;
+      font-weight: bolder;
+      font-style: italic;
+      color:rgb(19, 31, 84);
+    }
      table, th, td {
+      margin-left: 15px;
       color: white;
       font-size: 14px;
-      border: 1px solid white;
+      border: none;
       vertical-align: top;
       text-align: center;
       max-width: 800px;
@@ -154,6 +205,9 @@
     td {
       text-align: center;
     }
+    select {
+      margin-bottom: 30px;
+    }
     </style>
   </head>
   <body>
@@ -162,8 +216,16 @@
         <option value="0">Select Major</option>
 
       </select>
-      <p id="major-description"> </p>
-      <p id="concentration-description"> </p>
+      <table id="descriptions">
+        <tr id="major">
+          <td id="label" class="major">Major Description:</td>
+          <td id="major-description"> </td>
+        </tr>
+        <tr id="concentration">
+          <td id="label" class="concen">Concentration Description:</td>
+          <td id="concentration-description"> </td>
+        </tr>
+      </table>
       <table id="concentrations-courses">
         <tr id="concentrations">
           <th id="concentration-text"> </th>
